@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Esta configuración asegura que las rutas de los assets sean correctas para Netlify
+// Corregimos la ruta base para asegurar que todos los assets (JS, CSS, imágenes)
+// se carguen de forma relativa y funcionen en el build final de Netlify.
 export default defineConfig({
   plugins: [react()],
-  // Definimos la ruta base como la raíz.
-  base: '/',
+  // CAMBIO CRUCIAL: Usamos './' (relativo) en lugar de '/' (absoluto)
+  base: './', 
 })
